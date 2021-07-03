@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
-// you will need to install the dotenv npm module
 require('dotenv').config();
 
-// sign in bot with token
+// sign in bot with token...you will need to create an .env file for this
+// with your API token
 client.login(process.env.discordBOT);
 
 // async function run commands when discord client ready
@@ -31,13 +30,11 @@ client.on('ready', async () => {
         const connection = await milo.join();
 
         if (oldUserChannel == null) {
-            // User joins event
+            // user joins channel event
 
             // if specific user joins the channel do stuff
             if (newState.member.user.id == person) {
-                chat.send('A server overlord has joined');
-
-                chat.send('jake the motherfucking snake');
+                chat.send('person has joined the channel');
                 connection.play('./John Cena.mp3');
                 client.setTimeout(() => {
                     connection.disconnect();
