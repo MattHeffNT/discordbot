@@ -20,18 +20,18 @@ client.on('ready', async () => {
 
     // get the channels for the server
     const voice_channel = await client.channels.fetch('place voice channel id here');
-
+    
     // trigger actions on voice channel events
     client.on('voiceStateUpdate', async (oldState, newState) => {
         const oldUserChannel = oldState.channelID;
         const newUserChannel = newState.channelID;
 
         // bot joins channel
-        const connection = await milo.join();
-
+        const connection = await voice_channel.join();
+           
+          // user joins channel event
         if (oldUserChannel == null) {
-            // user joins channel event
-
+          
             // if specific user joins the channel do stuff
             if (newState.member.user.id == person) {
                 chat.send('person has joined the channel');
