@@ -9,8 +9,7 @@ client.login(process.env.discordBOT);
 // async function run commands when discord client ready
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    const guilds = client.guilds.cache.map((guild) => guild.id);
-
+    
     //get the ID of your channels, usually the first one will be main text channels and second one will be voice channels
     const channels = client.channels.cache.map((channel) => channel.id);
     console.log(channels);
